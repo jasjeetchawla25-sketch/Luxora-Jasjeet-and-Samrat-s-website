@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxora | Intelligent Real Estate Systems</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0f;
+    color: white;
+    text-align: center;
+}
+
+.section {
+    display: none;
+    padding: 80px 20px;
+}
+
+.active {
+    display: block;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #c9a227;
+    color: black;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Landing Section -->
+<div id="landing" class="section active">
+    <h1>Welcome to Luxora</h1>
+    <p>AI-powered real estate connection platform designed to link serious buyers with professional agents instantly.</p>
+    
+    <button onclick="showBuyer()">Looking to Buy</button>
+    <button onclick="showAgent()">Real Estate Agent</button>
+</div>
+
+<!-- Buyer Section -->
+<div id="buyer" class="section">
+    <h1>Find Your Property Faster</h1>
+    <p>
+        Luxora qualifies your request and connects you directly with a verified agent ready to assist.
+        No waiting. No missed calls.
+    </p>
+
+    <button>Request Agent Call</button>
+    <br><br>
+    <button onclick="goHome()">Back</button>
+</div>
+
+<!-- Agent Section -->
+<div id="agent" class="section">
+    <h1>Scale Your Real Estate Business</h1>
+    <p>
+        Luxora filters high-intent buyers and delivers verified prospects directly to you.
+        Increase efficiency. Close more deals.
+    </p>
+
+    <button>View Pricing</button>
+    <br><br>
+    <button onclick="goHome()">Back</button>
+</div>
+
+<script>
+function showBuyer() {
+    document.getElementById("landing").classList.remove("active");
+    document.getElementById("agent").classList.remove("active");
+    document.getElementById("buyer").classList.add("active");
+}
+
+function showAgent() {
+    document.getElementById("landing").classList.remove("active");
+    document.getElementById("buyer").classList.remove("active");
+    document.getElementById("agent").classList.add("active");
+}
+
+function goHome() {
+    document.getElementById("buyer").classList.remove("active");
+    document.getElementById("agent").classList.remove("active");
+    document.getElementById("landing").classList.add("active");
+}
+</script>
+
+</body>
+</html>
