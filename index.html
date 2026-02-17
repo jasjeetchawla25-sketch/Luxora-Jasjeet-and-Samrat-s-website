@@ -6,107 +6,370 @@
 <title>Luxora | Intelligent Real Estate Systems</title>
 
 <style>
-body {
+
+/* ================= GLOBAL ================= */
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0b0f;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0e0e12;
     color: white;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 85%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(14,14,18,0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: #d4af37;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
 }
 
-.section {
-    display: none;
-    padding: 80px 20px;
+.hero-content {
+    margin: auto;
 }
 
-.active {
-    display: block;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
-button {
-    padding: 15px 30px;
-    margin: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    background: #c9a227;
+.hero span {
+    color: #d4af37;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 30px;
+    color: #cccccc;
+}
+
+.button {
+    padding: 14px 30px;
+    background: #d4af37;
     color: black;
+    text-decoration: none;
+    border-radius: 6px;
     font-weight: bold;
+    margin: 10px;
+    display: inline-block;
 }
 
-button:hover {
+.button.secondary {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+}
+
+.button:hover {
     opacity: 0.8;
 }
 
-h1 {
-    font-size: 40px;
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 100px 0;
 }
 
-p {
-    max-width: 700px;
-    margin: 20px auto;
-    line-height: 1.6;
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
 }
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #aaaaaa;
+}
+
+/* ================= CARDS ================= */
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #18181f;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border: 1px solid #d4af37;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #d4af37;
+}
+
+.card p {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* ================= PRICING ================= */
+
+.pricing {
+    text-align: center;
+}
+
+.price-box {
+    background: #18181f;
+    padding: 40px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.price-box h3 {
+    margin-bottom: 10px;
+}
+
+.price-box h2 {
+    color: #d4af37;
+    margin: 15px 0;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #111;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px){
+    .cards {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Landing Section -->
-<div id="landing" class="section active">
-    <h1>Welcome to Luxora</h1>
-    <p>AI-powered real estate connection platform designed to link serious buyers with professional agents instantly.</p>
-    
-    <button onclick="showBuyer()">Looking to Buy</button>
-    <button onclick="showAgent()">Real Estate Agent</button>
+<div class="container">
+
+<nav>
+    <div class="logo">
+        <!-- Replace with your real logo image if you have one -->
+        Luxora
+    </div>
+
+    <ul>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#buyers">Buyers</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+    </ul>
+</nav>
+
 </div>
 
-<!-- Buyer Section -->
-<div id="buyer" class="section">
-    <h1>Find Your Property Faster</h1>
-    <p>
-        Luxora qualifies your request and connects you directly with a verified agent ready to assist.
-        No waiting. No missed calls.
-    </p>
+<!-- HERO -->
 
-    <button>Request Agent Call</button>
-    <br><br>
-    <button onclick="goHome()">Back</button>
-</div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>AI-Powered <span>Real Estate</span> Connection System</h1>
+        <p>
+            Luxora intelligently qualifies buyers and connects them with verified real estate professionals instantly.
+        </p>
 
-<!-- Agent Section -->
-<div id="agent" class="section">
-    <h1>Scale Your Real Estate Business</h1>
-    <p>
-        Luxora filters high-intent buyers and delivers verified prospects directly to you.
-        Increase efficiency. Close more deals.
-    </p>
+        <a href="#buyers" class="button">I'm Looking to Buy</a>
+        <a href="#agents" class="button secondary">I'm an Agent</a>
+    </div>
+</section>
 
-    <button>View Pricing</button>
-    <br><br>
-    <button onclick="goHome()">Back</button>
-</div>
+<!-- HOW IT WORKS -->
 
-<script>
-function showBuyer() {
-    document.getElementById("landing").classList.remove("active");
-    document.getElementById("agent").classList.remove("active");
-    document.getElementById("buyer").classList.add("active");
-}
+<section id="how">
+    <div class="container">
+        <div class="section-title">
+            <h2>How Luxora Works</h2>
+            <p>Smart qualification. Instant routing. High-quality connections.</p>
+        </div>
 
-function showAgent() {
-    document.getElementById("landing").classList.remove("active");
-    document.getElementById("buyer").classList.remove("active");
-    document.getElementById("agent").classList.add("active");
-}
+        <div class="cards">
+            <div class="card">
+                <h3>1. Buyer Qualification</h3>
+                <p>AI collects budget, property type, timeline, and location preferences.</p>
+            </div>
 
-function goHome() {
-    document.getElementById("buyer").classList.remove("active");
-    document.getElementById("agent").classList.remove("active");
-    document.getElementById("landing").classList.add("active");
-}
-</script>
+            <div class="card">
+                <h3>2. Smart Matching</h3>
+                <p>System identifies best-suited verified agents.</p>
+            </div>
+
+            <div class="card">
+                <h3>3. Instant Connection</h3>
+                <p>Agents receive high-intent leads ready to convert.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BUYERS -->
+
+<section id="buyers">
+    <div class="container">
+        <div class="section-title">
+            <h2>For Buyers</h2>
+            <p>Find your property faster without endless searching.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Simple Request</h3>
+                <p>Submit your property requirements in seconds.</p>
+            </div>
+
+            <div class="card">
+                <h3>Verified Agents</h3>
+                <p>Only experienced professionals contact you.</p>
+            </div>
+
+            <div class="card">
+                <h3>Fast Response</h3>
+                <p>Receive a callback quickly from serious agents.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AGENTS -->
+
+<section id="agents">
+    <div class="container">
+        <div class="section-title">
+            <h2>For Real Estate Agents</h2>
+            <p>Scale your business with AI-qualified leads.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>High Intent Leads</h3>
+                <p>No cold traffic. Only serious buyers.</p>
+            </div>
+
+            <div class="card">
+                <h3>Lead Dashboard (Phase 2)</h3>
+                <p>Track and manage prospects efficiently.</p>
+            </div>
+
+            <div class="card">
+                <h3>Business Growth</h3>
+                <p>Close more deals with less wasted time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="section-title">
+            <h2>Pricing</h2>
+            <p>Flexible plans for buyers and professionals.</p>
+        </div>
+
+        <div class="price-box">
+            <h3>Buyer Access</h3>
+            <h2>Low Fee</h2>
+            <p>One-time smart connection service.</p>
+        </div>
+
+        <div class="price-box">
+            <h3>Agent Plan</h3>
+            <h2>Premium</h2>
+            <p>Monthly subscription for qualified leads.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Luxora. Intelligent Real Estate Systems.
+</footer>
 
 </body>
 </html>
